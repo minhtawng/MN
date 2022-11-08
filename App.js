@@ -1,60 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
+const app = require ("express")();
+const PORT = process.env.PORT || 3000;
+//const db = require('./config/db')
 
-<HEAD>
-    <TITLE>I Love You MN</TITLE>
-    <META NAME="Generator" CONTENT="EditPlus">
-    <META NAME="Author" CONTENT="">
-    <META NAME="Keywords" CONTENT="">
-    <META NAME="Description" CONTENT="">
-    <style>
-        html,
-        body {
-            overflow: hidden;
-            padding: 0;
-            margin: 0;
-            background: #000;
-        }
-        
-        canvas {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-        
-        canvas {
-            /* top: 50%;
-            left: 50%; */
-            z-index: 1;
-            display: block;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            animation: heart 1.5s ease infinite
-        }
-        
-        @keyframes heart {
-            0% {
-                transform: scale(1);
-            }
-            30% {
-                transform: scale(.8);
-            }
-            /* 60% {
-                transform: scale(1.2);
-            } */
-            100% {
-                transform: scale(1);
-            }
-        }
-    </style>
-</HEAD>
+ //db.connect();
 
-<BODY>
 
-    <canvas id="pinkboard">
-        <canvas id="pinkboard">
-        </canvas>
-    </canvas>
+app.get("/", (req, res) => {
+    res.send(`
     <script>
         /*
          * Settings
@@ -314,7 +266,9 @@
                 render();
             }, 10);
         })(document.getElementById('pinkboard'));
-    </script>
-</BODY>
+    </script>`);
+});
 
-</HTML>
+app.listen(PORT, () => {
+    console.log(`App up at port ${PORT}`);
+});
